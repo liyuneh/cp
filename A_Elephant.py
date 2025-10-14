@@ -1,5 +1,4 @@
+import math
 n = int(input())
-if n <= 3:
-    print(n)
-else:
-    
+z = math.ceil(n/5)
+print(z)
