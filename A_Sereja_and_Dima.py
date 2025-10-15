@@ -1,11 +1,24 @@
 n = int(input())
 numbers = list(map(int, input().split()))
-numbers.sort(reverse = True)
-s_sum, d_sum  = 0, 0
-for i  in range(n):
-    if i % 2 == 0:
-        s_sum += numbers[i]
+left , right = 0 , len(numbers) - 1
+sereja_sum = 0
+dima_sum = 0
+count = 0
+while left <= right:
+    if count % 2 == 0:
+        z = max(numbers[left] , numbers[right])
+        sereja_sum += z
+        count += 1
+        if z == numbers[right]:
+            right -= 1
+        else:
+            left += 1
     else:
-        d_sum += numbers[i]
-
-print(str(s_sum) + " " + str(d_sum))
+        z = max(numbers[left] , numbers[right])
+        dima_sum += z
+        count += 1
+        if z == numbers[right]:
+            right -= 1
+        else:
+            left += 1
+print(*[sereja_sum, dima_sum])
