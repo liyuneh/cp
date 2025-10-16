@@ -1,5 +1,5 @@
 n = int(input())
 if n % 2 == 0:
-    print(n//2, n//2)
+    print(4, n - 4)
 else:
-    print(n//2, n//2 + 1)
+    print(9,  n - 9)
