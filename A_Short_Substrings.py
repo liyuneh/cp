@@ -13,9 +13,15 @@ yes_no = lambda condition: 'YES' if condition else 'NO'
 test_cases = lambda inp=0: number() if not inp else inp
 
 
-def solve():
-    n, a, b, c = numbers()
-    
+def solve(): 
+    n = number()
+    for _ in range(n):
+        s = word()
+        k = s[0]
+        for i in range(len(s)):
+            if i % 2 == 1:
+                k += s[i]
+        print(k)
     return
 
 for _ in range(test_cases(1)):

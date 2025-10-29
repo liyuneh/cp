@@ -14,8 +14,16 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    t = number()
+    for _ in range(t):
+        n = number()
+        arr = numbers()
+        count = 0
+        for i in range(len(arr)):
+            for j in range(i + 1, len(arr)):
+                if i < j and j - i == arr[j] - arr[i]:
+                    count += 1
+        print(count)
     return
 
 for _ in range(test_cases(1)):

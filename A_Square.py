@@ -14,8 +14,19 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    t = number()
+    ans = []
+    for _ in range(t):
+        x = []
+        y = []
+        for i in range(4):
+            a,b = numbers()
+            x.append(a)
+            y.append(b)
+        area = (max(x) - min(x)) * (max(y) - min(y))
+        print(area)
+
+        
     return
 
 for _ in range(test_cases(1)):

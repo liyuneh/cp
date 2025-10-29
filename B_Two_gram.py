@@ -14,9 +14,10 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
+    n = number()
+    s = word()
     
     return
 
-for _ in range(test_cases(1)):
+for _ in range(test_cases()):
     solve()

@@ -14,8 +14,15 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    t = number()
+    for _ in range(t):
+        n = number()
+        if n % 3 == 0:
+            print(n // 3 , n//3)
+        elif (n - 1) % 3 == 0:
+            print(math.ceil(n/3), n//3)
+        else:
+            print(n//3 , math.ceil(n/3)) 
     return
 
 for _ in range(test_cases(1)):

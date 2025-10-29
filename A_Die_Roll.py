@@ -14,8 +14,11 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    y, w = numbers()
+    a = 6 - max(y, w) + 1
+    b = 6
+    g = math.gcd(a,b)
+    print(f"{a//g}/{b//g}")
     return
 
 for _ in range(test_cases(1)):

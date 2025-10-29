@@ -14,8 +14,15 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    n = number()
+    for _ in range(n):
+        c = word()
+        countA = c.count('A')
+        countB = c.count('B')
+        if countA > countB:
+            print("A")
+        else:
+            print("B")
     return
 
 for _ in range(test_cases(1)):

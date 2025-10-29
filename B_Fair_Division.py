@@ -14,8 +14,24 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    t = number()
+    for _ in range(t):
+        n = number()
+        arr = sorted(numbers())
+        total = sum(arr)
+        if total % 2 != 0:
+            print("NO")
+            continue
+        count1 , count2 = 0 , 0
+        for i in range(len(arr)):
+            if arr[i] == 1:
+                count1 += 1
+            else:
+                count2 += 1
+        if (count1 == 0 and count2 % 2 == 1) or (count1 % 2 == 1 and count2 % 2 == 0):
+            print("NO")
+        else:
+            print("YES")
     return
 
 for _ in range(test_cases(1)):

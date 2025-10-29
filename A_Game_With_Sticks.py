@@ -14,8 +14,16 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    row, column = numbers()
+    count = 0
+    k = min(row, column)
+    while k != 0:
+        count += 1
+        k -= 1
+    if count % 2 == 0:
+        print("Malvika")
+    else:
+        print("Akshat")
     return
 
 for _ in range(test_cases(1)):

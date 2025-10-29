@@ -14,8 +14,20 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
+    n , t = numbers()
+    arr = numbers()
+    Sum = 0
+    l = 0
+    count = 0
+    for i in range(len(arr)):
+        while l < n and Sum + arr[l] <= t:
+            Sum += arr[l]
+            l += 1
+        count = max(count , l - i)
+        Sum -= arr[i]
     
+    print(count)
+
     return
 
 for _ in range(test_cases(1)):

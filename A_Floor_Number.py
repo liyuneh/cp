@@ -14,8 +14,16 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    t = number()
+    for _ in range(t):
+        n , x = numbers()
+        if n <= 2:
+            print(1)
+            continue
+        else:
+            new = n - 2
+            k = math.ceil(new/x)
+            print(k + 1)
     return
 
 for _ in range(test_cases(1)):

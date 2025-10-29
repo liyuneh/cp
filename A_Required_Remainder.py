@@ -14,8 +14,13 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    t = number()
+    for _ in range(t):
+        x, y , n = numbers()
+        for i in range(n, -1,-1):
+            if i % x == y:
+                print(i)
+                break
     return
 
 for _ in range(test_cases(1)):

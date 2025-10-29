@@ -14,8 +14,14 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    n = number()
+    for _ in range(n):
+        year = number()
+        if year >= 2020 and ((year%2020) <= (year // 2020)):
+            print("YES")
+        else:
+            print("NO")
+
     return
 
 for _ in range(test_cases(1)):

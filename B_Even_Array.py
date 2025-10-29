@@ -1,23 +1,33 @@
-def good(arr: list[int]) -> int:
+import sys, math, heapq as heap, itertools
+from collections import defaultdict, Counter, deque
+from bisect import bisect_right, bisect_left
+from random import randint
+from heapq import heappush, heappop, heapify
+
+
+number = lambda: int(sys.stdin.readline().strip())
+numbers = lambda: list(map(int, sys.stdin.readline().strip().split()))
+words = lambda: sys.stdin.readline().strip().split()
+word = lambda: sys.stdin.readline().strip()
+yes_no = lambda condition: 'YES' if condition else 'NO'
+test_cases = lambda inp=0: number() if not inp else inp
+
+
+def solve():
+    n = number()
+    arr = numbers()
+    countodd , counteven = 0, 0
     for i in range(len(arr)):
-        count = 0
-        if (i % 2 == 0 and arr[i] % 2 == 0) or (i % 2 != 0 and arr[i] % 2 != 0):
-            return True
-        else:
-            return False
-n = int(input())
-for _ in range(n):
-    k = int(input())
-    z = list(map(int, input().split()))
-    count = 0
-    for i in range(k):
-        if i % 2 == 0 and z[i] % 2 != 0:
-            count += 1
-        elif i % 2 != 0 and z[i] % 2 == 0:
-            count += 1
-    if good(z):
-        print(0)
-    elif count % 2 == 0:
-        print(count // 2)
+        if i % 2 == 0 and arr[i] % 2 == 1:
+            counteven += 1
+        elif i % 2 == 1 and arr[i] % 2 == 0:
+            countodd += 1
+    if countodd == counteven:
+        print(countodd)
     else:
         print(-1)
+    
+    return
+
+for _ in range(test_cases()):
+    solve()

@@ -14,8 +14,20 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    n,m = numbers()
+    ans = []
+    colored = ["Y", "C", "M"]
+    ok = False
+    for _ in range(n):
+        arr = words()
+        for ch in arr:
+            if ch in colored:
+                ok = True
+                break
+        if ok:
+            break
+    print("#Color" if ok  else "#Black&White" )
+
     return
 
 for _ in range(test_cases(1)):

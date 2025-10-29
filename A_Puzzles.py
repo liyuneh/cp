@@ -14,9 +14,21 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    n , m = numbers()
+    arr = sorted(numbers())
+    if m < n:
+        print(0)
+        return 
+    l = 0
+    res = float('inf')
+    for r in range(m):
+        if r - l + 1 == n:
+            res = min(res, arr[r] - arr[l])
+            l += 1
+    print(res)
     return
 
 for _ in range(test_cases(1)):
     solve()
+
+    # 5 7 10 10 12 22

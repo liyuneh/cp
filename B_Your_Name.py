@@ -14,8 +14,14 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    q = number()
+    for _ in range(q):
+        n = number()
+        s, t = words()
+        if Counter(s) == Counter(t):
+            print("YES")
+        else:
+            print("NO")
     return
 
 for _ in range(test_cases(1)):

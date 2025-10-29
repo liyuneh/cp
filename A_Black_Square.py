@@ -14,8 +14,19 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    a1,a2,a3,a4 = numbers()
+    s = word()
+    count = 0
+    for c in s:
+        if c == '1':
+            count += a1
+        elif c == '2':
+            count += a2
+        elif c == '3':
+            count += a3
+        else:
+            count += a4
+    print(count)
     return
 
 for _ in range(test_cases(1)):

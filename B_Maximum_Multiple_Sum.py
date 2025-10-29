@@ -14,8 +14,18 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    
+    n = number()
+    for _ in range(n):
+        m = number()
+        prod = 1
+        count = 0
+        res = 2
+        for i in range(2,m):
+            prod *= i
+            count += i
+            if prod == count:
+                res = max(res, count)
+        print(res)
     return
 
 for _ in range(test_cases(1)):
