@@ -18,13 +18,24 @@ def solve():
     arr1 = numbers()
     arr2 = numbers()
     count = 0
-    counter1  = Counter(arr1)
-    counter2 = Counter(arr2)
-    for keys , values in counter1.items():
-        if keys in counter2:
-            count += (values * counter2[keys])
+    l , r = 0 , 0 
+    while l < n and r < m:
+        if arr1[l] == arr2[r]:
+            val = arr1[l]
+            count1 = 0
+            while l < n and arr1[l] == val:
+                count1 += 1
+                l += 1
+            count2 = 0
+            while  r < m and arr2[r] == val:
+                count2 += 1
+                r += 1
+            count += count1 * count2
+        elif arr1[l]  <  arr2[r]:
+            l += 1
+        else:
+            r += 1
     print(count)
-    
     return
 
 for _ in range(test_cases(1)):
