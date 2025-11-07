@@ -15,8 +15,9 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 def solve():
     n = number()
-    
+    x = bin(n).count("1")
+    print(x)
     return
 
-for _ in range(test_cases()):
+for _ in range(test_cases(1)):
     solve()

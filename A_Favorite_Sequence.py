@@ -16,13 +16,34 @@ test_cases = lambda inp=0: number() if not inp else inp
 def solve():
     n = number()
     arr = numbers()
-    zero = arr.count(0)
-    neg = arr.count(-1)
-    pos = arr.count(1)
-    if neg % 2 != 0:
-        print(zero + 2)
+    even , odd = [] , []
+    if len(arr) <= 2:
+        print(*arr)
+        return
+    if len(arr) % 2 == 1:
+        odd = arr[:len(arr)// 2 + 1]
+        even = arr[len(arr) // 2 + 1:]
     else:
-        print(zero)
+        odd = arr[:len(arr) // 2]
+        even = arr[len(arr)//2 :]
+    even.reverse()
+    ans = []
+    l , r = 0, 0
+
+    while l < len(odd) and r < len(even):
+        ans.append(odd[l])
+        ans.append(even[r])
+        l += 1
+        r += 1
+    if l < len(odd):
+        ans = ans + odd[l:]
+        print(*ans)
+        return 
+    if r < len(even):
+        ans = ans + even[r:]
+        print(*ans)
+        return
+    print(*ans)
     
     return
 
