@@ -14,26 +14,11 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n = word()
-    k = number()
-    l = 0
-    s = ""
-    count = 0
-    while l< len(n):
-        r = l + k
-        segment = n[l:r]
-        if len(segment) < k:
-            s += segment
-            break
-        if count % 2 == 0:
-            s += segment[::-1]
-        else:
-            s += segment
-        count += 1
-        l += k
-    print(s)
+    n = number()
+    if n < 10:
+        print(n)
+        return 
     
-
     return
 
 for _ in range(test_cases()):

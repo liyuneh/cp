@@ -14,27 +14,27 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n = word()
-    k = number()
-    l = 0
-    s = ""
-    count = 0
-    while l< len(n):
-        r = l + k
-        segment = n[l:r]
-        if len(segment) < k:
-            s += segment
+    s = word()
+    abr = word()
+    n , m = len(s), len(abr)
+    l , r  = 0 , 0 
+    while l < n and r < m:
+        if s[l] == abr[r]:
+            l , r = l + 1, r + 1
+        elif (abr[r].isalpha() and abr[r] != s[l]) or abr[r] == '0':
+            print("False")
             break
-        if count % 2 == 0:
-            s += segment[::-1]
         else:
-            s += segment
-        count += 1
-        l += k
-    print(s)
-    
+            x = 0
+            while r < len(abr) and abr[r].isdigit():
+                x = x * 10 + int(abr[r])
+                r += 1
+            l += x
 
+    if l == len(s) and r == len(abr):
+        print("True")
+        return 
     return
 
-for _ in range(test_cases()):
+for _ in range(test_cases(1)):
     solve()

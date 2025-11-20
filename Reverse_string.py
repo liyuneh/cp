@@ -36,5 +36,5 @@ def solve():
 
     return
 
-for _ in range(test_cases()):
+for _ in range(test_cases(1)):
     solve()
