@@ -12,17 +12,17 @@ word = lambda: sys.stdin.readline().strip()
 yes_no = lambda condition: 'YES' if condition else 'NO'
 test_cases = lambda inp=0: number() if not inp else inp
 
-
+# armstrong number is a number which gives you 
 def solve():
-    t = number()
-    for _ in range(t):
-        n = number()
-        ans = 0
-        if n < 10:
-            ans = n
-            return
-        count = 9
-        for _ in range()
+    n = number()
+    result = 0
+    armstrong = n
+    count = len(str(n))
+    while n > 0:
+        result += (n % 10 ) ** count
+        n //= 10
+    print(result == armstrong)
+
     return
 
 for _ in range(test_cases()):

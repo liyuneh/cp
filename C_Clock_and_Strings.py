@@ -14,15 +14,16 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    t = number()
-    for _ in range(t):
-        n = number()
-        ans = 0
-        if n < 10:
-            ans = n
-            return
-        count = 9
-        for _ in range()
+    a,b ,c, d = numbers()
+    ans = [a,b]
+    count = 0
+    for i in range(min(c, d) , max(c, d)):
+        if i in ans:
+            count += 1
+    if count == 1:
+        print("YES")
+    else:
+        print("NO")
     return
 
 for _ in range(test_cases()):

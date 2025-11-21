@@ -14,15 +14,12 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    t = number()
-    for _ in range(t):
-        n = number()
-        ans = 0
-        if n < 10:
-            ans = n
-            return
-        count = 9
-        for _ in range()
+    degree = number()
+    n = 360 / (180 - degree)
+    if n.is_integer() and n >= 3:
+        print ("YES")
+    else:
+        print("NO")
     return
 
 for _ in range(test_cases()):

@@ -4,7 +4,6 @@ from bisect import bisect_right, bisect_left
 from random import randint
 from heapq import heappush, heappop, heapify
 
-
 number = lambda: int(sys.stdin.readline().strip())
 numbers = lambda: list(map(int, sys.stdin.readline().strip().split()))
 words = lambda: sys.stdin.readline().strip().split()
@@ -14,16 +13,20 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    t = number()
-    for _ in range(t):
-        n = number()
-        ans = 0
-        if n < 10:
-            ans = n
+    n = number()
+
+    if n % 7 == 0:
+        print(n)
+        return
+
+    base = n - (n % 10)
+
+    for last in range(10):
+        candidate = base + last
+        if candidate % 7 == 0:
+            print(candidate)
             return
-        count = 9
-        for _ in range()
-    return
+
 
 for _ in range(test_cases()):
     solve()
