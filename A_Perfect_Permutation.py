@@ -14,21 +14,15 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    t = number()
-    for _ in range(t):
-        n = number()
-        s = str(n)
-        if n < 10:
-            print(n)
-            continue
-        ans = 9 * (len(str(n)) - 1)
-        first = int(s[0])
-        same = int(str(first) * (len(s)))
-        if same <= n:
-            ans += first
-        else:
-            ans += first - 1
-        print(ans)
+    n = number()
+    if n % 2 == 1:
+        print(-1)
+    else:
+        perf = [i for i in range(1, n + 1)]
+        for i in range(0,len(perf), 2 ):
+            perf[i], perf[i+1] = perf[i+1], perf[i]
+        print(*perf)
+        
     return
 
 for _ in range(test_cases(1)):

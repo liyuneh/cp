@@ -14,22 +14,18 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    t = number()
-    for _ in range(t):
-        n = number()
-        s = str(n)
-        if n < 10:
-            print(n)
-            continue
-        ans = 9 * (len(str(n)) - 1)
-        first = int(s[0])
-        same = int(str(first) * (len(s)))
-        if same <= n:
-            ans += first
-        else:
-            ans += first - 1
-        print(ans)
+    n = number()
+    arr = numbers()
+    counter = Counter(arr)
+    count = 0
+    for keys , values in counter.items():
+        if keys != values:
+            if keys > values:
+                count += values
+            elif keys < values:
+                count += (values - keys)
+    print(count)
     return
 
-for _ in range(test_cases(1)):
+for _ in range(test_cases()):
     solve()

@@ -14,15 +14,23 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , q = numbers()
+    n, q = numbers()
     arr = numbers()
-    for _ in range(q):
-        l , r , k = numbers()
-        cur_sum = sum(arr[l-1:r])
-        total = sum(arr) - cur_sum + (r - l + 1) * k
-        print("YES" if total % 2 == 1 else "NO")
+    
+    pref = [0] * (n + 1)
+    for i in range(n):
+        pref[i+1] = pref[i] + arr[i]
 
-        
+    total_sum = pref[n]
+
+    for _ in range(q):
+        l, r, k = map(int, input().split())
+
+        cur_sum = pref[r] - pref[l-1]
+
+        new_total = total_sum - cur_sum + (r - l + 1) * k
+
+        print("YES" if new_total % 2 == 1 else "NO")
     return
 
 for _ in range(test_cases()):

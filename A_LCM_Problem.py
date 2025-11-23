@@ -14,22 +14,12 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    t = number()
-    for _ in range(t):
-        n = number()
-        s = str(n)
-        if n < 10:
-            print(n)
-            continue
-        ans = 9 * (len(str(n)) - 1)
-        first = int(s[0])
-        same = int(str(first) * (len(s)))
-        if same <= n:
-            ans += first
-        else:
-            ans += first - 1
-        print(ans)
+    n , m = numbers()
+    if n * 2 <= m:
+        print(n , 2 * n)
+    else:
+        print(-1, -1)
     return
 
-for _ in range(test_cases(1)):
+for _ in range(test_cases()):
     solve()

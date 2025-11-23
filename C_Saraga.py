@@ -14,21 +14,19 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    t = number()
-    for _ in range(t):
-        n = number()
-        s = str(n)
-        if n < 10:
-            print(n)
-            continue
-        ans = 9 * (len(str(n)) - 1)
-        first = int(s[0])
-        same = int(str(first) * (len(s)))
-        if same <= n:
-            ans += first
+    s = word()
+    t = word()
+    if not any(c  in t for c  in s ) :
+        print(-1)
+        return 
+    k = ""
+    for i in range(len(s)):
+        if s[i] not in t:
+            k += s[i]
         else:
-            ans += first - 1
-        print(ans)
+            k += t[ t.index(s[i]):]
+            break
+    print(k)
     return
 
 for _ in range(test_cases(1)):
