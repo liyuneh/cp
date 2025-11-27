@@ -14,20 +14,17 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    res = 0
-    for i in range(n // a + 1):
-        for j in range(n // b + 1):
-            rem = n - i * a - j * b
-            if rem < 0:
-                break
-            if rem % c == 0:
-                k = rem // c
-                res = max(res, i + j + k)
-    print(res)
+    n = number()
+    s = word()
+    counter = Counter(s)
+    max_m = max(counter, key= counter.get)
+    min_m = min(counter, key=counter.get)
+    find = s.index(min_m)
+    if counter[max_m] == counter[min_m]:
+        print()
 
-    
+
     return
 
-for _ in range(test_cases(1)):
+for _ in range(test_cases()):
     solve()

@@ -14,20 +14,22 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    res = 0
-    for i in range(n // a + 1):
-        for j in range(n // b + 1):
-            rem = n - i * a - j * b
-            if rem < 0:
-                break
-            if rem % c == 0:
-                k = rem // c
-                res = max(res, i + j + k)
-    print(res)
+    a, b = numbers()
+    if a % 2 == 0 and b % 2 == 1:
+        print(-1)
+    elif a % 2 == 1 and b % 2 == 0:
+        k = b // 2
+        if (a * k + b // k ) % 2 == 0:
+            print(a * k + b//k)
+        else:
+            print(-1)
+    elif a % 2 == 1 and b % 2 == 1:
+        print( a * b  + b // b)
+    else:
+        k = b // 2
+        print(a * k + b//k)
 
-    
     return
 
-for _ in range(test_cases(1)):
+for _ in range(test_cases()):
     solve()

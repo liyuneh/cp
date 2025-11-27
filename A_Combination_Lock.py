@@ -14,19 +14,19 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    res = 0
-    for i in range(n // a + 1):
-        for j in range(n // b + 1):
-            rem = n - i * a - j * b
-            if rem < 0:
-                break
-            if rem % c == 0:
-                k = rem // c
-                res = max(res, i + j + k)
-    print(res)
-
-    
+    n = number()
+    s1 = word()
+    s2 = word()
+    count = 0
+    for i in range(n):
+        x = int(s1[i])
+        y = int(s2[i])
+        k = max(y, x) - min(y , x)
+        if k > 5:
+            count += (10 - k)
+        else:
+            count += k
+    print(count) 
     return
 
 for _ in range(test_cases(1)):

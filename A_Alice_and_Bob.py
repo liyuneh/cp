@@ -14,20 +14,20 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, a, b, c = numbers()
-    res = 0
-    for i in range(n // a + 1):
-        for j in range(n // b + 1):
-            rem = n - i * a - j * b
-            if rem < 0:
-                break
-            if rem % c == 0:
-                k = rem // c
-                res = max(res, i + j + k)
-    print(res)
-
-    
+    n , m = numbers()
+    arr = numbers()
+    countless = 0
+    countmore = 0
+    for i in range(len(arr)):
+        if m > arr[i]:
+            countless += 1
+        elif m < arr[i]:
+            countmore += 1
+    if countmore >= countless:
+        print(m + 1)
+    else:
+        print(m - 1)
     return
 
-for _ in range(test_cases(1)):
+for _ in range(test_cases()):
     solve()
