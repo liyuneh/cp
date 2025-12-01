@@ -15,23 +15,23 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 def solve():
     a , b = numbers()
-    if a % 2 != 0:
+    total = a * 1 + b * 2
+    if total % 2 == 1:
         print("NO")
         return
-    
-    if a % 2 == 0 and b % 2 == 0:
-        print("YES")
-        return 
-    if a % 2 == 0 and b % 2 == 0:
-        print("YES")
-        return
-    if a % 2 == 0 and b % 2 != 0:
-        x = a // 2
-        if x % 2 == 1:
+    if a % 2 == 1:
+        print("NO")
+    else:
+        if b % 2 == 0:
             print("YES")
         else:
-            print("NO")
-        return
+            x = a - 2
+            if x >= 0 and  x % 2 == 0:
+                print("YES")
+            else:
+                print("NO")
+
+
     
     return
 

@@ -14,12 +14,18 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k , x = numbers()
-    
-    
-    
-    
-    
+    n , k = numbers()
+    s = word()
+    l= 0 
+    count = 0
+    res = float('inf')
+    for r in range(len(s)):
+        count += 1 if s[r] == 'W' else 0
+        if r - l + 1 == k:
+            res = min(res, count)
+            count -= 1 if s[l] == 'W' else 0
+            l += 1
+    print(res )
     return
 
 for _ in range(test_cases()):

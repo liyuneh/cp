@@ -14,12 +14,15 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k , x = numbers()
-    
-    
-    
-    
-    
+    n , x = numbers()
+    arr = numbers()
+    left = arr.index(1)
+    right = n - 1-arr[::-1].index(1)
+    if (right - left + 1) > x:
+        print("NO")
+    else:
+        print("YES")
+
     return
 
 for _ in range(test_cases()):

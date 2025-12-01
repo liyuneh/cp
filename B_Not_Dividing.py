@@ -14,12 +14,11 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k , x = numbers()
-    
-    
-    
-    
-    
+    n = number()
+    arr = numbers()
+    for i in range(n- 1):
+        if arr[i] % arr[i+1] == 0:
+            arr[i] = arr[i] + 1 if (arr[i] + 1 ) % arr[i+ 1] != 0 else arr[]
     return
 
 for _ in range(test_cases()):

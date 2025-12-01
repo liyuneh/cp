@@ -14,11 +14,20 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k , x = numbers()
-    
-    
-    
-    
+    n = number()
+    res = 0
+    for i in range(1,n ** 2 + 1):
+        total = i
+        total += i - n if i - n > 0 else 0
+        total += i + 1 if i + 1 <= n ** 2 and i % n != 0 else 0
+        total += i + n if i + n <= (n ** 2) else 0
+        total += i - 1 if i - 1 > 0 and (i - 1) % n != 0 else 0
+        res = max(res, total)
+
+    print(res)
+
+        
+
     
     return
 

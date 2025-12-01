@@ -14,12 +14,9 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k , x = numbers()
-    
-    
-    
-    
-    
+    n = number()
+    arr = numbers()
+    print(min(n - arr.count(0), sum(arr) - n + 1))
     return
 
 for _ in range(test_cases()):

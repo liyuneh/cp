@@ -14,12 +14,19 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k , x = numbers()
-    
-    
-    
-    
-    
+    n = number()
+    arr = numbers()
+    arr1 = arr.copy()
+    for i in range(n):
+        for j in range(i + 1, n):
+            if arr[i] ^ arr[j] < 4 and arr[i] > arr[j]:
+                arr[i] , arr[j] = arr[j], arr[i]
+                break
+        if arr == arr1:
+            break
+        arr1 = arr.copy()
+    print(*arr)
+
     return
 
 for _ in range(test_cases()):

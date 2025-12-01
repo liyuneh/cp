@@ -14,13 +14,26 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k , x = numbers()
+    n = number()
+    arr = numbers()
+    pref1 = [0] * (n + 1)
+    for i in range(1,n+1):
+        pref1[i] = pref1[i-1] + arr[i-1]
+    ans = sorted(arr)
+    pref2 = [0] * (n + 1)
+    for i in range(1, n + 1):
+        pref2[i] =pref2[i-1] + ans[i-1]
     
-    
-    
-    
-    
+    m = number()
+
+    for _ in range(m):
+        type, l , r = numbers()
+        if type == 1:
+            print(pref1[r] - pref1[l-1])
+        else:
+            print(pref2[r] - pref2[l-1])
+
     return
 
-for _ in range(test_cases()):
+for _ in range(test_cases(1)):
     solve()

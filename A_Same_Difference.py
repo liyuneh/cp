@@ -14,12 +14,20 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k , x = numbers()
-    
-    
-    
-    
-    
+    n = number()
+    s = word()
+    count = 0
+    if len(set(s)) <= 1:
+        print(0)
+    else:
+        s = s[::-1]
+        l = 0
+        for i in range(1,len(s)):
+            if s[i] != s[l]:
+                count += 1
+            else:
+                continue
+        print(count)
     return
 
 for _ in range(test_cases()):

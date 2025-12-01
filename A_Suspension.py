@@ -14,12 +14,16 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k , x = numbers()
+    n = number()
+    y , r = numbers()
+    n -= r
+    count = 0
+    while n > 0 and y >= 2:
+        n -= 1
+        y -= 2
+        count += 1
     
-    
-    
-    
-    
+    print(count + r)
     return
 
 for _ in range(test_cases()):

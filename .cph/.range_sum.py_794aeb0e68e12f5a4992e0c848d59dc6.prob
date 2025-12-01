@@ -1,0 +1,1 @@
+{"name":"Local: range_sum","url":"c:\\Users\\User\\Downloads\\cp\\range_sum.py","tests":[{"id":1764571381628,"input":"5\n","output":"-2,0,3,5,3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\User\\Downloads\\cp\\range_sum.py","group":"local","local":true}

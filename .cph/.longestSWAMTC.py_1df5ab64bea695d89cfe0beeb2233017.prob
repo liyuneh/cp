@@ -1,0 +1,1 @@
+{"name":"Local: longestSWAMTC","url":"c:\\Users\\User\\Downloads\\cp\\longestSWAMTC.py","tests":[{"id":1764581029952,"input":"ebecda","output":"3"},{"id":1764581902156,"input":"ccaabbb","output":"5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\User\\Downloads\\cp\\longestSWAMTC.py","group":"local","local":true}
