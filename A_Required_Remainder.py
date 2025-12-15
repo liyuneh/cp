@@ -17,10 +17,21 @@ def solve():
     t = number()
     for _ in range(t):
         x, y , n = numbers()
-        for i in range(n, -1,-1):
-            if i % x == y:
-                print(i)
-                break
+        if y == 0 and n < x:
+            print(0)
+            continue
+        mod = n % x
+        if mod == y:
+            print(n)
+            continue
+      
+        elif mod < y:
+            needed = y - mod
+            print(n - x + needed)
+            continue
+        else :
+            print(n - (mod - y))
+
     return
 
 for _ in range(test_cases(1)):

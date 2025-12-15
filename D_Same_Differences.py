@@ -14,17 +14,19 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    t = number()
-    for _ in range(t):
-        n = number()
-        arr = numbers()
-        count = 0
-        for i in range(len(arr)):
-            for j in range(i + 1, len(arr)):
-                if i < j and j - i == arr[j] - arr[i]:
-                    count += 1
-        print(count)
+    n = number()
+    arr = numbers()
+    table = defaultdict(int)
+
+    for i in range(len(arr)):
+        table[arr[i] - i] += 1
+
+    ans = 0
+    for v in table.values():
+        ans += v * (v - 1) // 2
+
+    print(ans)
     return
 
-for _ in range(test_cases(1)):
+for _ in range(test_cases()):
     solve()

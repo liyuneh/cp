@@ -15,21 +15,27 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 def solve():
     n = number()
-    arr = numbers()
-
-    found = False
-    s = arr[1] + arr[0]
-    for i in range(2, len(arr)):
-        if s <= arr[i]:
-            found = True
-            break
-    if found:
-        print(1,2,i+1)
-    else:
-        print(-1)
-    
-        
-
+    if (n % 3 == 0 and n % 2 == 0) or (n % 3 == 0 and n % 2 != 0):
+        print(abs(n // 3))
+        return
+    if abs(n) == 2:
+        print(1)
+        return
+    if n == 1:
+        print(2)
+        return
+    n = abs(n)
+    if n % 3 == 2:
+        print(1 + (n - 2) // 3)
+        return 
+    if  n % 3 == 1:
+        if n % 2 == 0:
+            x = n // 2
+            print(min(x, n // 3 + 1))
+            return
+        else:
+            print((n - 4) // 3 + 2)
+            return 
     return
 
 for _ in range(test_cases()):

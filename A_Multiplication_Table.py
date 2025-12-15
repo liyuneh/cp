@@ -14,23 +14,24 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n = number()
-    arr = numbers()
-
-    found = False
-    s = arr[1] + arr[0]
-    for i in range(2, len(arr)):
-        if s <= arr[i]:
-            found = True
-            break
-    if found:
-        print(1,2,i+1)
-    else:
-        print(-1)
-    
-        
-
+    n  , x = numbers()
+    t = min(n , x)
+    l , r = 1 , t 
+    count = 0
+    while l <= r:
+        if  l * r == x:
+            if l == r:
+                count += 1
+            else:
+                count += 2
+            l += 1
+            r -= 1
+        elif l * r > x:
+            r -= 1
+        else:
+            l += 1
+    print(count)
     return
 
-for _ in range(test_cases()):
+for _ in range(test_cases(1)):
     solve()

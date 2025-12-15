@@ -16,11 +16,26 @@ test_cases = lambda inp=0: number() if not inp else inp
 def solve():
     n = number()
     arr = numbers()
-    k = sum(arr)
-    if k % 4 == 0:
-        print(k//4)
-    else:
-        print(k//4 + 1)
+    four = arr.count(4)
+    two = arr.count(2)
+    ones = arr.count(1)
+    threes = arr.count(3)
+    total = four
+
+    pairs = min(ones, threes)
+    total += threes 
+    ones -= pairs
+
+    total += (two // 2)
+    two = two % 2
+    
+    if two == 1:
+        total += 1
+        ones = max(0 , ones - 2)
+    
+    total += (ones + 3) // 4
+    print(total )
+
     return
 
 for _ in range(test_cases(1)):

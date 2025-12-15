@@ -14,22 +14,19 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n = number()
-    arr = numbers()
-
-    found = False
-    s = arr[1] + arr[0]
-    for i in range(2, len(arr)):
-        if s <= arr[i]:
-            found = True
-            break
-    if found:
-        print(1,2,i+1)
+    a , b = numbers()
+    if a == b:
+        print(0)
+    elif a > b:
+        if a % 2 == b % 2:
+            print(1)
+        else:
+            print(2)
     else:
-        print(-1)
-    
-        
-
+        if a % 2 != b % 2:
+            print(1)
+        else:
+            print(2)
     return
 
 for _ in range(test_cases()):

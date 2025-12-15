@@ -16,8 +16,16 @@ test_cases = lambda inp=0: number() if not inp else inp
 def solve():
     n = number()
     s = word()
+    l = 0 
+    freq = {}
+    for r in range(len(s)- 1):
+        gram = s[r:r+ 2]
+        freq[gram] = freq.get(gram, 0) + 1
+    freq1 = sorted(freq.items(), key = lambda x:(-x[1], x[0]))
+    res = freq1[0][0]
+    print(res)
     
     return
 
-for _ in range(test_cases()):
+for _ in range(test_cases(1)):
     solve()

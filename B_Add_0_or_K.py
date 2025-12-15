@@ -14,22 +14,25 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n = number()
+    def is_prime(n):
+        if n < 2:
+            return False
+        if n <= 3:
+            return True
+        if n % 2 == 0 or n % 3 == 0:
+            return False
+        i = 5
+        while i * i <= n:
+            if n % i == 0 or n % (i + 2) == 0:
+                return False
+            i += 6
+        return True
+    n , k = numbers()
     arr = numbers()
-
-    found = False
-    s = arr[1] + arr[0]
-    for i in range(2, len(arr)):
-        if s <= arr[i]:
-            found = True
-            break
-    if found:
-        print(1,2,i+1)
-    else:
-        print(-1)
-    
-        
-
+    for i in range(n):
+        if arr[i] == 1 or is_prime(arr[i]):
+            arr[i] += k
+    print(*arr)
     return
 
 for _ in range(test_cases()):

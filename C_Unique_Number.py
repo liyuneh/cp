@@ -18,7 +18,24 @@ def solve():
     if n < 10:
         print(n)
         return 
-    
+    total = sum([i for i in range(1,10)])
+    if total < n:
+        print(-1)
+    else:
+        res = []
+        i = 9
+        while n > 0:
+            x = min(n , i)
+            if x == n:
+                res.append(x)
+                break
+            else:
+                n -= i
+                res.append(x)
+                i -= 1
+        res.reverse()
+        print(''.join(map(str, res)))
+
     return
 
 for _ in range(test_cases()):

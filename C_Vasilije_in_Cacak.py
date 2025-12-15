@@ -15,11 +15,13 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 def solve():
     n , k , x = numbers()
-    
-    
-    
-    
-    
+    minSum = k * (k + 1) // 2
+    maxSum = k * (2*n - k + 1) // 2 
+    if minSum <= x <= maxSum:
+        print("YES")
+    else:
+        print("NO")
+
     return
 
 for _ in range(test_cases()):

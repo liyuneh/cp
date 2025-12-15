@@ -16,24 +16,13 @@ test_cases = lambda inp=0: number() if not inp else inp
 def solve():
     n = number()
     arr = word()
-    ansa, ansb = [], []
-    for i in range(len(arr)):
-        if arr[i] == 'a':
-            ansa.append(arr[i])
-        else:
-            ansb.append(arr[i])
-    if arr == "".join(ansa) or arr == "".join(ansb):
+    if n <= 2:
         print(0)
-        return 
-    count = 0
-    ans3 = ''.join(ansa) + ''.join(ansb)
-    if arr == ans3[::-1]:
-        print(0)
-        return
-    for i in range(len(arr)):
-        if arr[i] != ans3[i]:
-            count += 1
-    print(count // 2)
+    a1 = arr.index('a')
+    a2 = len(arr) - arr[::-1].index('a') - 1
+    b1 = arr.index('b')
+    b2 = len(arr) - arr[::-1].index('b') - 1
+    print(a1,a2,b1,b2)
     return
 
 for _ in range(test_cases()):

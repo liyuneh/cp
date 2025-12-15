@@ -17,20 +17,12 @@ def solve():
     n = number()
     arr = numbers()
 
-    found = False
-    s = arr[1] + arr[0]
-    for i in range(2, len(arr)):
-        if s <= arr[i]:
-            found = True
-            break
-    if found:
-        print(1,2,i+1)
-    else:
-        print(-1)
+    ones = arr.count(1)
+    zeros = arr.count(0)
     
-        
+
 
     return
 
-for _ in range(test_cases()):
+for _ in range(test_cases(1)):
     solve()

@@ -15,22 +15,25 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 def solve():
     n = number()
-    arr = numbers()
-
-    found = False
-    s = arr[1] + arr[0]
-    for i in range(2, len(arr)):
-        if s <= arr[i]:
-            found = True
-            break
-    if found:
-        print(1,2,i+1)
-    else:
-        print(-1)
-    
-        
+    arr = list(str(n)) 
+    arr.append('1')
+    if arr[0] != '1':
+        print("NO")
+        return 
+    r = 0
+    while r < len(arr) - 1:
+        if r + 2 < len(arr)  and arr[r:r+3] == ['1', '4', '4']:
+            r += 3
+        elif r + 1 < len(arr) and arr[r:r+2] == ['1', '4']:
+            r += 2
+        elif arr[r] == '1':
+            r += 1
+        else:
+            print("NO")
+            return
+    print("YES")
 
     return
 
-for _ in range(test_cases()):
+for _ in range(test_cases(1)):
     solve()

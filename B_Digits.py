@@ -14,22 +14,21 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n = number()
-    arr = numbers()
-
-    found = False
-    s = arr[1] + arr[0]
-    for i in range(2, len(arr)):
-        if s <= arr[i]:
-            found = True
-            break
-    if found:
-        print(1,2,i+1)
-    else:
-        print(-1)
+    def factorial(n):
+        return math.factorial(n)
     
-        
-
+    ans = [1]
+    n , d = numbers()
+    x = factorial(n) * d
+    if x % 3 == 0:
+        ans.append(3)
+    if d == 5:
+        ans.append(5)
+    if n >= 3 or d == 7:
+        ans.append(7)
+    if x % 9 == 0:
+        ans.append(9)
+    print(*ans)
     return
 
 for _ in range(test_cases()):

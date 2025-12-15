@@ -17,16 +17,25 @@ def solve():
     n ,k = numbers()
     arr = numbers()
     arr.sort()
+    # print(arr)
     ans = 0
-    if k == 1:
-        ans = sum(arr) - (arr[0] + arr[1])
-        print(ans)
-        return
-    if k == 2:
-        ans = sum(arr) - arr[-1]
-        print(ans)
-        return
+    total = sum(arr)
+    for i in range(n):
+        total -= arr[i]
+        if i + 1 == (k * 2):
+            break
+    l = i
+    ans = total
+    for i in range(n - 1, max(0, n - k) - 1, -1):
+        total += arr[l]
+        total += arr[l - 1]
+        l -= 2
+        total -= arr[i]
+        ans = max(ans, total)
+    print(ans)
     return
 
 for _ in range(test_cases()):
     solve()
+
+    # 10 11 12 13 15 22

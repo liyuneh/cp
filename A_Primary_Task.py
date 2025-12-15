@@ -14,21 +14,17 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n = number()
-    arr = numbers()
-
-    found = False
-    s = arr[1] + arr[0]
-    for i in range(2, len(arr)):
-        if s <= arr[i]:
-            found = True
-            break
-    if found:
-        print(1,2,i+1)
+    s = word()
+    s1 = s[:2]
+    s2 = s[2:]
+    if s2[0] == '0':
+        print("NO")
+    elif s1 != '10':
+        print("NO") 
+    elif s2[0] != '0'  and int(s2) < 2:
+        print("NO")
     else:
-        print(-1)
-    
-        
+        print("YES")
 
     return
 

@@ -14,23 +14,28 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n = number()
-    arr = numbers()
-
+    n , m = numbers()
+    if m > n:
+        print(-1)
+        return 
+    if m == n:
+        print(n)
+        return 
+    x = n / 2
+    if x % m == 0:
+        print(int(x))
+        return 
+    x = math.floor(x)
     found = False
-    s = arr[1] + arr[0]
-    for i in range(2, len(arr)):
-        if s <= arr[i]:
+    for i in range(x + 1, n + 1):
+        if i % m == 0:
             found = True
             break
-    if found:
-        print(1,2,i+1)
+    if found :
+        print(i)
     else:
         print(-1)
-    
-        
-
     return
 
-for _ in range(test_cases()):
+for _ in range(test_cases(1)):
     solve()
