@@ -15,28 +15,18 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 def solve():
     n = number()
-    arr = numbers()
-    if n <= 1:
-        print("YES")
+    a = numbers()
+    b = numbers()
+    k = 0
+    if n == 1:
+        print(max(k -a[0], b[0] - k))
         return 
-    total = sum(arr)
-    avg = total // n
-    count = 0
-    found = True
-    for i in range(n):
-        count += arr[i]
-        if count / (i + 1) < avg:
-            found = False
-            break
-    if found:
-        print("YES")
-    else:
-        print("NO")
-
-
-
+    if n == 2:
+        print(max((0-min(a[0], b[0]) if a[0] * b[0] < 0 or (a[0] < 0 and b[0] < 0  ) else max(a[0], b[0])) - a[1], b[1] - min(a[0], b[0])) )
+        return 
+    if n >= 3:
         
-    
+
     return
 
 for _ in range(test_cases()):

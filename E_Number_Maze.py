@@ -12,31 +12,25 @@ word = lambda: sys.stdin.readline().strip()
 yes_no = lambda condition: 'YES' if condition else 'NO'
 test_cases = lambda inp=0: number() if not inp else inp
 
-
+from itertools import permutations
 def solve():
-    n = number()
-    arr = numbers()
-    if n <= 1:
-        print("YES")
-        return 
-    total = sum(arr)
-    avg = total // n
-    count = 0
-    found = True
-    for i in range(n):
-        count += arr[i]
-        if count / (i + 1) < avg:
-            found = False
-            break
-    if found:
-        print("YES")
-    else:
-        print("NO")
+    n , j , k = numbers()
+    perm = permutations(str(n))
+    ans = [''.join(p)  for p in perm]
 
+    x = ans[j-1]
+    y = ans[k-1]
+    count_a = 0
+    count_b = 0
+    for i in range(len(x)):
+        if x[i] == y[i]:
+            count_a += 1
+    seen = set(y)
+    for i in range(len(x)):
+        if x[i] != y[i] and x[i] in seen:
+            count_b += 1
+    print(f"{count_a}A{count_b}B")
 
-
-        
-    
     return
 
 for _ in range(test_cases()):

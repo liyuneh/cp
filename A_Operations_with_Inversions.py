@@ -16,27 +16,18 @@ test_cases = lambda inp=0: number() if not inp else inp
 def solve():
     n = number()
     arr = numbers()
-    if n <= 1:
-        print("YES")
-        return 
-    total = sum(arr)
-    avg = total // n
-    count = 0
-    found = True
-    for i in range(n):
-        count += arr[i]
-        if count / (i + 1) < avg:
-            found = False
-            break
-    if found:
-        print("YES")
-    else:
-        print("NO")
-
-
-
-        
     
+    count = 0
+    x = arr[0] 
+    
+    for i in range(1,n):
+        if arr[i] < x:
+            count += 1
+        else:
+            x = arr[i]
+    
+    print(count)
+
     return
 
 for _ in range(test_cases()):

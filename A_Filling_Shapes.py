@@ -15,29 +15,13 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 def solve():
     n = number()
-    arr = numbers()
-    if n <= 1:
-        print("YES")
+    if n % 2 == 1 or n < 2:
+        print(0)
         return 
-    total = sum(arr)
-    avg = total // n
-    count = 0
-    found = True
-    for i in range(n):
-        count += arr[i]
-        if count / (i + 1) < avg:
-            found = False
-            break
-    if found:
-        print("YES")
-    else:
-        print("NO")
-
-
-
-        
+    
+    
     
     return
 
-for _ in range(test_cases()):
+for _ in range(test_cases(1)):
     solve()

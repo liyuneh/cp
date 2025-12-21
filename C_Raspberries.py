@@ -14,28 +14,28 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n = number()
+    n , k = numbers()
     arr = numbers()
-    if n <= 1:
-        print("YES")
-        return 
-    total = sum(arr)
-    avg = total // n
-    count = 0
-    found = True
-    for i in range(n):
-        count += arr[i]
-        if count / (i + 1) < avg:
-            found = False
+    if k == 4:
+        counter = Counter(arr)
+        seen = set(arr)
+        if 2 in seen:
+            if counter[2] >= 2:
+                print(0)
+                return 
+    divisible = False
+    for c in arr:
+        if c % k == 0:
+            divisible = True
             break
-    if found:
-        print("YES")
+    if divisible :
+        print(0)
     else:
-        print("NO")
-
-
-
-        
+        max_m = arr[0] % k
+        for c in arr:
+            if c % k > max_m :
+                max_m = c % k
+        print(k - max_m) 
     
     return
 
