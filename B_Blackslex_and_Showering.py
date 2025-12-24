@@ -14,18 +14,18 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k = numbers()
-    if n == 1 :
-        print(k)
-        return
-    if k == 1:
-        print()
-    if n == k or  n % k == 0:
-        print(1)
-        return
-    if n != k and k != 1:
-        print(math.ceil(max(n, k) / min(n , k)))
-        return
+    n = number()
+    arr = numbers()
+    total = 0
+    for i in range(1,n):
+        total += abs(arr[i] - arr[i-1])
+    last = abs(arr[-2] -arr[-1])
+    first = abs(arr[0] - arr[1])
+    x = max(last, first)
+    gain = 0
+    for  i in range(1, n - 1):
+        gain = max(gain,abs(arr[i] - arr[i-1]) + abs(arr[i] - arr[i+1]) - abs(arr[i-1] - arr[i+1]))
+    print(total - max(x, gain))  
     return
 
 for _ in range(test_cases()):

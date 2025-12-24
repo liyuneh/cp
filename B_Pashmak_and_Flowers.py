@@ -14,19 +14,24 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k = numbers()
-    if n == 1 :
-        print(k)
-        return
-    if k == 1:
-        print()
-    if n == k or  n % k == 0:
-        print(1)
-        return
-    if n != k and k != 1:
-        print(math.ceil(max(n, k) / min(n , k)))
-        return
+    n = number()
+    arr = numbers()
+    arr.sort()
+    if len(set(arr)) == 1:
+        print(0,(n * (n-1))//2)
+        return 
+    max_diff = max(arr) - min(arr)
+    freq = {}
+    for ch in arr:
+        freq[ch] = freq.get(ch, 0) + 1
+    count = 0
+    for key, val in freq.items():
+        if key + max_diff in freq:
+            count += (freq[key] * freq[key + max_diff])
+    
+    print(max_diff, count)
+
     return
 
-for _ in range(test_cases()):
+for _ in range(test_cases(1)):
     solve()

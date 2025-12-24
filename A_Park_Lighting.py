@@ -14,18 +14,8 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k = numbers()
-    if n == 1 :
-        print(k)
-        return
-    if k == 1:
-        print()
-    if n == k or  n % k == 0:
-        print(1)
-        return
-    if n != k and k != 1:
-        print(math.ceil(max(n, k) / min(n , k)))
-        return
+    n, m = numbers()
+    print((n*m + 1) // 2)
     return
 
 for _ in range(test_cases()):
