@@ -14,26 +14,14 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k = numbers()
-    if n == 1 :
-        print(k)
+    s = word()
+    if s.count('1') <= 1:
+        print(0)
         return
-    if n == k or  n % k == 0 or k == 1:
-        print(1)
-        return
-    if k > n and k % n == 0:
-        print(k//n)
-        return 
-    if n < k and k % n != 0:
-        mod = k % n
-        x = k - mod
-        print(x//n + 1)
-        return 
-    if n > k and n % k != 0:
-        print(2)
-        return
+    first = s.find('1')
+    last = s.rfind('1')
+    print(s[first:last + 1].count('0'))
 
-    return
 
 for _ in range(test_cases()):
     solve()

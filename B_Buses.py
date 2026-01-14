@@ -14,10 +14,31 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , m ,l, x , y = numbers()
-    
-    
+    n , m ,l, sb , sp = numbers()
+    arr = []
+    for _ in range(n):
+        start, end = numbers()
+        arr.append((start,end))
+    arr.sort(key=lambda x:x[0])
+    for _ in range(m):
+        k = number()
+        best = (l - k) / sp
+        # print(best)
+
+        for a,b in arr:
+            if a > k or b <= k:
+                continue
+            bus = (b - a) / sb
+            to_last = (l - b) / sp
+            # print(bus)
+            # print(to_last)
+            # print()
+
+
+            best = min(best, bus + to_last)
+        print(best if best != int(best) else int(best))
+
     return
 
-for _ in range(test_cases()):
+for _ in range(test_cases(1)):
     solve()

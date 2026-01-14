@@ -17,15 +17,15 @@ def solve():
     n = number()
     a = numbers()
     b = numbers()
-    k = 0
-    if n == 1:
-        print(max(k -a[0], b[0] - k))
-        return 
-    if n == 2:
-        print(max((0-min(a[0], b[0]) if a[0] * b[0] < 0 or (a[0] < 0 and b[0] < 0  ) else max(a[0], b[0])) - a[1], b[1] - min(a[0], b[0])) )
-        return 
-    if n >= 3:
-        
+    
+    Max, Min = 0 , 0
+    for  i in range(n):
+        nw_max = max(Max-a[i], b[i] - Min)
+        nw_min = min(Min-a[i], b[i] - Max)
+
+        Max = nw_max
+        Min = nw_min
+    print(Max)
 
     return
 

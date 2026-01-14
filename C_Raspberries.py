@@ -14,30 +14,50 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k = numbers()
+    n, k = numbers()
     arr = numbers()
+    rem = Counter(c % k for c in arr)
+
+    if k == 2:
+        print(0 if rem[0] else 1)
+        return
+
+    if k == 3:
+        if rem[0]:
+            print(0)
+        elif rem[2]:
+            print(1)
+        else:
+            print(2)
+        return
+
     if k == 4:
-        counter = Counter(arr)
-        seen = set(arr)
-        if 2 in seen:
-            if counter[2] >= 2:
-                print(0)
-                return 
-    divisible = False
-    for c in arr:
-        if c % k == 0:
-            divisible = True
-            break
-    if divisible :
-        print(0)
-    else:
-        max_m = arr[0] % k
-        for c in arr:
-            if c % k > max_m :
-                max_m = c % k
-        print(k - max_m) 
-    
-    return
+        count_even = rem[2]
+        if rem[0]:
+            print(0)
+        elif count_even >= 2:
+            print(0)
+        elif count_even == 1 and rem[1]:
+            print(1)
+
+        elif rem[3]:
+            print(1)
+        else:
+            print(2)
+        return
+
+    if k == 5:
+        if rem[0]:
+            print(0)
+        elif rem[4]:
+            print(1)
+        elif rem[3]:
+            print(2)
+        elif rem[2]:
+            print(3)
+        else:
+            print(4)
+        return
 
 for _ in range(test_cases()):
     solve()

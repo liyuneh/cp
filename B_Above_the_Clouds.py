@@ -14,26 +14,22 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k = numbers()
-    if n == 1 :
-        print(k)
-        return
-    if n == k or  n % k == 0 or k == 1:
-        print(1)
-        return
-    if k > n and k % n == 0:
-        print(k//n)
-        return 
-    if n < k and k % n != 0:
-        mod = k % n
-        x = k - mod
-        print(x//n + 1)
-        return 
-    if n > k and n % k != 0:
-        print(2)
-        return
+    n = number()
+    s = word()
 
-    return
+    right = Counter(s)
+    left = Counter()
+
+    ok = False
+    for i in range(1, n - 1):
+        right[s[i]] -= 1
+        left[s[i - 1]] += 1
+        if left[s[i]] > 0 or right[s[i]] > 0:
+            ok = True
+            break
+
+    print("Yes" if ok else "No")
+
 
 for _ in range(test_cases()):
     solve()

@@ -14,24 +14,30 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k = numbers()
-    if n == 1 :
-        print(k)
-        return
-    if n == k or  n % k == 0 or k == 1:
-        print(1)
-        return
-    if k > n and k % n == 0:
-        print(k//n)
-        return 
-    if n < k and k % n != 0:
-        mod = k % n
-        x = k - mod
-        print(x//n + 1)
-        return 
-    if n > k and n % k != 0:
-        print(2)
-        return
+    n , q = numbers()
+    arr = numbers()
+    arr.sort()
+    quest = numbers()
+    def right (ans, target) -> int:
+        before = -1
+        l , r = 0 , len(ans) - 1
+        while l <= r :
+            mid = l + (r - l ) // 2
+            if ans[mid] <= target:
+                before = mid
+                l = mid + 1
+            else:
+                r = mid - 1
+        return before
+    pref = 0
+    prefs = [0]
+    for i in range(len(arr)):
+        pref += arr[i]
+        prefs.append(pref)
+    res = []
+    for i in range(len(quest)):
+        res.append(prefs[right(arr,quest[i]) + 1])
+    print(*res)
 
     return
 

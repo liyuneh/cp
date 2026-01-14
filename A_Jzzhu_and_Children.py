@@ -14,26 +14,22 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k = numbers()
-    if n == 1 :
-        print(k)
-        return
-    if n == k or  n % k == 0 or k == 1:
-        print(1)
-        return
-    if k > n and k % n == 0:
-        print(k//n)
-        return 
-    if n < k and k % n != 0:
-        mod = k % n
-        x = k - mod
-        print(x//n + 1)
-        return 
-    if n > k and n % k != 0:
-        print(2)
-        return
+    n , m = numbers()
+    arr = numbers()
+    q = deque()
+    for i in range(len(arr)):
+        q.append((i+1, arr[i]))
+    while len(q) != 1:
+        if q[0][1] <= m:
+            q.popleft()
+        else:
+            idx, val = q.popleft()
+            val -= m
+            q.append((idx, val))
+    print(q[0][0])
+    
 
     return
 
-for _ in range(test_cases()):
+for _ in range(test_cases(1)):
     solve()

@@ -14,10 +14,15 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    a , b = numbers()
-    if (a or b ) == 1 or (a == b):
+    a, b = numbers()
+
+    if b == 1:
         print("NO")
-        return 
+        return
+
+    print("YES")
+    print(a, a * b, a * b + a)
+    
     
     return
 

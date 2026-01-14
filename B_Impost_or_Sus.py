@@ -14,25 +14,26 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k = numbers()
-    if n == 1 :
-        print(k)
-        return
-    if n == k or  n % k == 0 or k == 1:
-        print(1)
-        return
-    if k > n and k % n == 0:
-        print(k//n)
-        return 
-    if n < k and k % n != 0:
-        mod = k % n
-        x = k - mod
-        print(x//n + 1)
-        return 
-    if n > k and n % k != 0:
-        print(2)
-        return
+    s = word()
+    arr = list(s)
+    count = 0
+    if arr[0] == 'u':
+        count += 1
+    if arr[-1] =='u':
+        count += 1
+    if arr[0] == 'u':
+        arr[0] = 's'
+    if arr[-1] == 'u':
+        arr[-1] = 's'
+    ans = 0
+    for i in range( len(arr)):
+        if arr[i] == 's':
+            count += ans//2
+            ans = 0
+        else:
+            ans += 1
 
+    print(count)
     return
 
 for _ in range(test_cases()):

@@ -14,25 +14,37 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k = numbers()
-    if n == 1 :
-        print(k)
-        return
-    if n == k or  n % k == 0 or k == 1:
-        print(1)
-        return
-    if k > n and k % n == 0:
-        print(k//n)
-        return 
-    if n < k and k % n != 0:
-        mod = k % n
-        x = k - mod
-        print(x//n + 1)
-        return 
-    if n > k and n % k != 0:
-        print(2)
+    n = number()
+    if n < 24:
+        print("NO")
         return
 
+    seen = set()
+    temp = n
+
+    for i in range(2, int(math.sqrt(temp)) + 1):
+        if temp % i == 0:
+            seen.add(i)
+            temp //= i
+            break
+
+    for i in range(2, int(math.sqrt(temp)) + 1):
+        if temp % i == 0 and i not in seen:
+            seen.add(i)
+            temp //= i
+            break
+
+    if temp > 1 and temp not in seen:
+        seen.add(temp)
+
+    if len(seen) == 3:
+        print("YES")
+        print(*seen)
+    else:
+        print("NO")
+
+
+    
     return
 
 for _ in range(test_cases()):

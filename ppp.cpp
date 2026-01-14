@@ -1,0 +1,54 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<stack>
+
+using namespace std;
+
+class infixToPostfix {
+    public:
+    int precedence(char op) {
+        if(op == '+' || op == '-') return 1;
+        if(op == '*' || op == '/') return 2;
+        return 0;
+    }
+    string convert(string infix){
+        stack<char> st;
+        string postfix = "";
+        for (char c : infix){
+            if (isalnum(c)){
+                postfix += c;
+
+            } else if (c == '('){
+                st.push(c);
+            } else if (c == ')'){
+                while (!st.empty() && st.top() != '('){
+                    postfix += st.top();
+                    st.pop();
+                }
+                st.pop(); // pop '('
+            } else {
+                while (!st.empty() && precedence(st.top()) >= precedence(c)){
+                    postfix += st.top();
+                    st.pop();
+                }
+                st.push(c);
+            }
+        }
+        while (!st.empty()){
+            postfix += st.top();
+            st.pop();
+        }
+        return postfix;
+    }
+};
+
+int main() {
+    infixToPostfix converter;
+    string infix;
+    cout << "Enter infix expression: ";
+    getline(cin, infix);
+    string postfix = converter.convert(infix);
+    cout << "Postfix expression: " << postfix << endl;
+        return 0;
+    }

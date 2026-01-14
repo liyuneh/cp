@@ -14,25 +14,28 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n , k = numbers()
-    if n == 1 :
-        print(k)
-        return
-    if n == k or  n % k == 0 or k == 1:
-        print(1)
-        return
-    if k > n and k % n == 0:
-        print(k//n)
-        return 
-    if n < k and k % n != 0:
-        mod = k % n
-        x = k - mod
-        print(x//n + 1)
-        return 
-    if n > k and n % k != 0:
-        print(2)
-        return
+    m,a,b,c = numbers()
+    keri1 = 0 if a > m else m - a
+    keri2 = 0 if b > m else m - b
+    first = a if a < m else m
+    second = b if b < m else m
+    count = first + second
+    # print(count)
+    if keri1 > 0 and c >= keri1:
+        count += keri1
+        c -= keri1
+    elif keri1 > 0 and c < keri1:
+        count += c
+        c = 0
+    if keri2 > 0 and c >= keri2 :
+        count += keri2
+        c -= keri2
+    elif keri2 > 0 and c < keri2:
+        count += c
+        c = 0
+    
 
+    print(count)
     return
 
 for _ in range(test_cases()):
