@@ -14,36 +14,13 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    s = word()
-    t = word()
-    m = t[::-1]
-    idxn = float('inf')
-    same = ""
-    for i in range(len(s)):
-        if s[i] in m:
-            idxn = i
-            same = s[i]
-            break
-    print()
-    if idxn == float('inf'):
-        print(-1)
-        return 
-    else:
-        find = False
-        idxm = m.index(same)
-        new = ""
-        for i in range(len(m)):
-            if m[i] == same and i + idxn < 4:
-                continue
-            else:
-                find = True
-                idxm = i
-                break
-        new = s[:idxn+1] + m[:idxm]
-        print(new)
+    n = number()
+    count = 0
 
-        
-    
+    while n >= 10:
+        n = sum(int(i) for i in str(n))
+        count += 1
+    print(count)
 
     return
 

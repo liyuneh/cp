@@ -15,37 +15,23 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 def solve():
     s = word()
-    t = word()
-    m = t[::-1]
-    idxn = float('inf')
-    same = ""
-    for i in range(len(s)):
-        if s[i] in m:
-            idxn = i
-            same = s[i]
+    p = s
+    consecutive = False
+    index = 0
+    for i in range(len(s)- 1):
+        if s[i] == s[i+1]:
+            consecutive = True
+            index = i
             break
-    print()
-    if idxn == float('inf'):
-        print(-1)
-        return 
+    new = ""
+    if not consecutive:
+        p += chr(ord('a') + ((ord(s[-1]) - ord('a') + 1) % 26))
+        print(p)
     else:
-        find = False
-        idxm = m.index(same)
-        new = ""
-        for i in range(len(m)):
-            if m[i] == same and i + idxn < 4:
-                continue
-            else:
-                find = True
-                idxm = i
-                break
-        new = s[:idxn+1] + m[:idxm]
+        x = chr(ord('a') + ((ord(s[index]) - ord('a') + 1) % 26))
+        new = s[:index+1] + x + s[index+1:]
         print(new)
-
-        
-    
-
     return
 
-for _ in range(test_cases(1)):
+for _ in range(test_cases()):
     solve()
