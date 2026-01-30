@@ -16,29 +16,25 @@ test_cases = lambda inp=0: number() if not inp else inp
 def solve():
     n = number()
     a = numbers()
-    arr = a[::-1]
-    total = sum(a)
-    i = n
-    x = 0
-    while i > 1:
-        first = arr.pop()
-        second = arr.pop()
-        if first >= 0 and second >= 0:
-            x += first
-            arr.append(second)
-        elif first < 0 and  second < 0:
-            x -= second
-            arr.append(first)
-        else:
-            if first > 0 and second < 0:
-                if abs(first) > abs(second):
-                    x += first
-                    arr.append(second)
-                else:
-                    x -= second
-                    arr.append(first)
-            elif first < 0 and second > 0 :
-                if abs()
+    q = deque(a)
+    mx = 0
+    while len(q) > 1:
+        x1 = q.popleft()
+        x2 = q.popleft()
+        if x1 > 0 and x2 > 0:
+            mx += (x1)
+            q.appendleft(x2)
+        elif x1 > 0 and x2 < 0:
+            mx -= (x2)
+            q.appendleft(x1)
+        elif x1 < 0 and x2 < 0:
+            mx -= (x2)
+            q.appendleft(x1)
+        elif x1 < 0 and x2 > 0:
+            mx += x1
+            q.appendleft()
+
+
     return
 for _ in range(test_cases()):
     solve()

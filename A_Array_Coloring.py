@@ -1,15 +1,31 @@
-n = int(input())
-for _ in range(n):
-    t = int(input())
-    arr = list(map(int, input().split()))
-    odd_sum = 0
-    even_sum = 0
-    for i in range(t):
-        if arr[i] % 2 != 0:
-            odd_sum += arr[i]
+import sys, math, heapq as heap, itertools
+from collections import defaultdict, Counter, deque
+from bisect import bisect_right, bisect_left
+from random import randint
+from heapq import heappush, heappop, heapify
+
+
+number = lambda: int(sys.stdin.readline().strip())
+numbers = lambda: list(map(int, sys.stdin.readline().strip().split()))
+words = lambda: sys.stdin.readline().strip().split()
+word = lambda: sys.stdin.readline().strip()
+yes_no = lambda condition: 'YES' if condition else 'NO'
+test_cases = lambda inp=0: number() if not inp else inp
+
+
+def solve():
+    n = number()
+    arr = numbers()
+    one = []
+
+    for i in range(n):
+        if i % 2:
+            one.append((arr[i], "R"))
         else:
-            even_sum += arr[i]
-    if odd_sum % 2 == 0 and even_sum % 2 == 0:
-        print("YES")
-    else:
-        print("NO")
+            one.append((arr[i], "B"))
+    one.sort()
+    print(yes_no(all(one[i][1] != one[i - 1][1] for i in range(1, n))))
+    return
+
+for _ in range(test_cases()):
+    solve()

@@ -14,34 +14,28 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, m, h = numbers()
-    nums = numbers()
-    factor = [0] * n
-    current = 0
-    add = [0] * n
-    mx = max(nums)
-    org = mx
-    for _ in range(m):
-        b, c = numbers()
-        b -= 1
-        if factor[b] < current:
-            factor[b] = current
-            add[b] = c
+    a, b = sorted(numbers(), reverse=True)
+    # print(a, b)
+
+    first , next = 0 ,0 
+    count = 0
+    itr = 1
+    while True:
+        first, next = next + itr, first
+        if first <= a and next <= b:
+            count += 1
+            itr *= 2
         else:
-            add[b] += c
-        mx = max(mx, nums[b] + add[b])
-        if mx > h:
-            current += 1
-            mx = org
-            
-    for i in range(n):
-        if factor[i] == current:
-            nums[i] += add[i]
-    print(*nums)
+            break
+    print(count)
+        
 
     
-    return
 
+    return
 
 for _ in range(test_cases()):
     solve()
+
+
+    # 1 4 16 32 128 

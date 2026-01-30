@@ -14,14 +14,19 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n = number()
+    m = number()
     arr = numbers()
     counter = Counter(arr)
-    count = len(set(arr)) if len(set(arr)) != 1 or  len(set(arr)) // 2 != 2 else 0
-    for key, values in counter.items():
-       if values % 2 ==0:
-           count += 1
-    print(count)
+    count = 0
+    for key, val in counter.items():
+        if val == 1:
+            count += 1
+    if m == count :
+        print(m)
+        return
+    
+
+
     return
 
 for _ in range(test_cases()):

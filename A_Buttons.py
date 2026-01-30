@@ -15,10 +15,18 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 def solve():
     a, b , c = numbers()
-    k = a + b + c
-    count = 0
-    while k > 0:
-        if count % 2 == 0 :
+    if a == b and c % 2 == 1:
+        print('First')
+        return
+    if a == b and c % 2 == 0:
+        print("Second")
+        return 
+    if a + c > b + c:
+        print("First")
+        return 
+    if a + c < b + c:
+        print("Second")
+        return 
             
     return
 

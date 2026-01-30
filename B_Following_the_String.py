@@ -14,34 +14,19 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n, m, h = numbers()
-    nums = numbers()
-    factor = [0] * n
-    current = 0
-    add = [0] * n
-    mx = max(nums)
-    org = mx
-    for _ in range(m):
-        b, c = numbers()
-        b -= 1
-        if factor[b] < current:
-            factor[b] = current
-            add[b] = c
-        else:
-            add[b] += c
-        mx = max(mx, nums[b] + add[b])
-        if mx > h:
-            current += 1
-            mx = org
-            
-    for i in range(n):
-        if factor[i] == current:
-            nums[i] += add[i]
-    print(*nums)
+    n = number()    
+    arr = numbers()
 
-    
+    ans = [0] * 26 
+    s = []
+    for i in range(len(arr)):
+        for j in range(len(ans)):
+            if arr[i] == ans[j]:
+                s.append(chr(97+j))
+                ans[j] += 1
+                break
+    print("".join(s))
     return
-
 
 for _ in range(test_cases()):
     solve()

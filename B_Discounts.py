@@ -1,14 +1,3 @@
-# s = input()
-# prev = -1
-# for want in "hello":
-#     for i in range(len(s)):
-#         if s[i] == want and i > prev:
-#             prev = i
-#             break
-#     else:
-#         print("NO")
-#         exit()
-# print("YES")
 import sys, math, heapq as heap, itertools
 from collections import defaultdict, Counter, deque
 from bisect import bisect_right, bisect_left
@@ -25,28 +14,20 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    s = word()
-    wanted = "hello"
+    n = number()
+    a = numbers()
+    m = number()
+    coupon = numbers()
+    a.sort(reverse = True)
+    total = sum(a)
 
-    j = 0
-    prev = 0
-    count = 0
-    x = ""
-    for i in range(len(wanted)):
-        for j in range(prev,len(s)):
-            if s[j] == wanted[i]:
-                x += s[j]
-                prev = j + 1
-                break
-    if x == wanted:
-        print("YES")
-    else:
-        print("NO")
-    
-    
+
+    for i in range(m):
+        x = a[coupon[i] - 1]
+        print(total - x)
         
 
-                
+
     return
 
 for _ in range(test_cases(1)):
