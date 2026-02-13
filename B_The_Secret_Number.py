@@ -15,9 +15,25 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 def solve():
     n = word()
-    if len(set(n)) != 1:
+    x = str(n)
+    if x[:len(x) // 2 + 1] != x[len(x) // 2 + 1:] and len(x) % 2 != 0:
         print(0)
         return 
+    if len(x) == 2 and x[0] != x[1]:
+        print(0)
+        return 
+    if len(x) == 2 and x[0] == x[1]:
+        print(x[0])
+        return 
+    y = list(x)
+    ans = []
+    if len(y) % 3 == 0 and len(y) % 2 == 0:
+        a = "".join(y[:len(y)//2])
+        b = "0".join(y[:len(y)// 2])
+        for i in range(len())
+
+
+    
     
     return
 

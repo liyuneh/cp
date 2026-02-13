@@ -14,14 +14,23 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    t = number()
-    for _ in range(t):
-        n = number()
-        if (n // 2) % 2 == 0 :
-            print("NO")
-        else:
-            print("YES")
-            
+    n = number()
+    if n % 4 != 0:
+        print("NO")
+    else:
+        even = []
+        odd = []
+        ans1, ans2  = 2, 1
+        for _ in range(n//2):
+            even.append(ans1)
+            odd.append(ans2)
+            ans1 += 2
+            ans2 += 2
+        odd[-1] = odd[-1] + (n//2)
+
+        final = even + odd
+        print("YES")
+        print(*final)
 
     return
 

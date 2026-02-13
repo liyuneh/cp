@@ -1,22 +1,20 @@
-import sys, math, heapq as heap, itertools
-from collections import defaultdict, Counter, deque
-from bisect import bisect_right, bisect_left
-from random import randint
-from heapq import heappush, heappop, heapify
+n = int(input())
+t = list(map(int, input().split()))
 
+prog = []
+maths = []
+pe = []
 
-number = lambda: int(sys.stdin.readline().strip())
-numbers = lambda: list(map(int, sys.stdin.readline().strip().split()))
-words = lambda: sys.stdin.readline().strip().split()
-word = lambda: sys.stdin.readline().strip()
-yes_no = lambda condition: 'YES' if condition else 'NO'
-test_cases = lambda inp=0: number() if not inp else inp
+for i in range(n):
+    if t[i] == 1:
+        prog.append(i + 1)
+    elif t[i] == 2:
+        maths.append(i + 1)
+    else:
+        pe.append(i + 1)
 
+w = min(len(prog), len(maths), len(pe))
+print(w)
 
-def solve():
-    n = number()
-    arr = numbers()
-    return
-
-for _ in range(test_cases()):
-    solve()
+for i in range(w):
+    print(prog[i], maths[i], pe[i])

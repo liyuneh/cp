@@ -14,21 +14,25 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 
 def solve():
-    n = number()
+    n , k = numbers()
     a = numbers()
-    m = number()
-    coupon = numbers()
+    voucher = numbers()
     a.sort(reverse = True)
+    voucher.sort()
     total = sum(a)
 
-
-    for i in range(m):
-        x = a[coupon[i] - 1]
-        print(total - x)
-        
-
-
+    prev = -1
+    add = 0
+    for v in voucher:
+        if v + prev < n:
+            add += a[v + prev ]
+            prev = v + prev 
+        else:
+            break
+    print(total - add)
+    
+    
     return
 
-for _ in range(test_cases(1)):
+for _ in range(test_cases()):
     solve()

@@ -16,7 +16,18 @@ test_cases = lambda inp=0: number() if not inp else inp
 def solve():
     n = number()
     arr = numbers()
-    print(min(n - arr.count(0), sum(arr) - n + 1))
+    arr.sort()
+    
+    mn = arr.count(0)
+    nn_zero = n - mn
+    total = sum(arr)
+    if total == n:
+        print(1)
+        return 
+    if total > n:
+        print(min(nn_zero , total - n + 1))
+        return 
+
     return
 
 for _ in range(test_cases()):
