@@ -15,13 +15,14 @@ test_cases = lambda inp=0: number() if not inp else inp
 
 def solve():
     x = number()
-    if x % 9 != 0:
-        print(0)
-        return 
-    if x % 9 == 0 :
-        print(10)
-        return 
-    return
+    
+    for i in range(x, x + 81):
+        if i - sum(int(d) for d in str(i)) == x:
+            print(10)
+            return
+    
+    print(0)
+
 
 for _ in range(test_cases()):
     solve()

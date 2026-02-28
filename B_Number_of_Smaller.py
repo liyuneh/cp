@@ -19,11 +19,9 @@ def solve():
     arr2 = numbers()
     l = 0
     ans = []
-    for r in range(m):
-        while l < n  and arr1[l] < arr2[r]:
-            l += 1
-        ans.append(l)
-   
+    for i in range(len(arr2)):
+        x = bisect_left(arr1, arr2[i])
+        ans.append(x)
     print(*ans)
     return
 

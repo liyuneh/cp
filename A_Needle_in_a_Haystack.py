@@ -22,13 +22,9 @@ def solve():
         if counter_s[c] > counter_t[c]:
             print("Impossible")
             return 
-    
-    for c in counter_s:
         counter_t[c] -= counter_s[c]
-    new_ones = sorted(counter_t.keys())
-    # print(new_ones)
-    # print(counter_t[new_ones[0]])
     
+    new_ones = sorted(counter_t.keys())
     ans = []
 
     l = 0
@@ -53,10 +49,6 @@ def solve():
     while q:
         new_string.append(q.popleft())
     print("".join(new_string))
-
-    
-    
-
     return
 
 for _ in range(test_cases()):

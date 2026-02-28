@@ -19,13 +19,8 @@ def solve():
     for _ in range(n):
         x = number()
         arr.append(x)
-    total = sum (arr)
-    if total % 360 == 0:
-        print("YES")
-        return 
-    if (total // 2) % 2 != 0:
-        print("NO")
-        return 
+    
+    
     
     
     

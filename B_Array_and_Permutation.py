@@ -18,17 +18,13 @@ def solve():
     per = numbers()
     final = numbers()
 
-    for i in range(n-1,-1,-1):
-        if per[i] == final[i]:
-            continue
-        elif i + 1 < n and final[i] == per[i+1]:
-            per[i] = per[i+1]
-        elif i - 1 >= 0 and final[i] == per[i-1]:
-            per[i] = per[i-1]
-        else:
+    for i in range(1, n):
+        if final[i] != final[i-1] and final[i] != per[i]:
             print("NO")
             return 
     print("YES")
+    
+        
     return
 
 for _ in range(test_cases()):
